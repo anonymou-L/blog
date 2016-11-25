@@ -1,6 +1,4 @@
 $(function(){
-	
-	// SSO单点登录
 	jQuery(".submit_btn").click(function () {
 		userLogin();
 	});
@@ -20,20 +18,24 @@ $(function(){
 		if(isSafari){
 			alert("请切换浏览器登录");
 		}
-		var account = jQuery.trim(jQuery('#username').val());
+		var username = jQuery.trim(jQuery('#username').val());
 		var password = jQuery.trim(jQuery('#password').val());
-        var account1 = account;
-		if(account == '' || password == ''){
+		if(username == '' || password == ''){
 			alert("用户名或密码不能为空");
 			return;
 		}
-		//edusso.login("web", "web", 'login_name', account2, password, function(result){
-		SSO.login(account1, password, function(result){
-			if (result.result != "success"){
-				alert("账号或者密码错误");
-			}else {
-				 window.location.href = SSO.loginRedirectUrl;
-				}
-		});
+		$.ajax({
+		  	url:"checkLogin.do",
+		  	type:"post",
+		  	data:{"username":username,"password":password},
+		  	success:function(data){
+		  		if(data){
+		  			window.location.href = "/blog/admin/index.do";
+		  		}else{
+		  			alert("登陆失败");
+		  		}
+		  	}
+		  	
+		  	});
 	};
 })
