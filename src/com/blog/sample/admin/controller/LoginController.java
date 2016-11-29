@@ -16,24 +16,27 @@ import org.springframework.web.servlet.view.RedirectView;
  */
 
 @Controller
+@RequestMapping(value="/login")
 public class LoginController {
 	
-	@RequestMapping(value="/login/login.do")
+	@RequestMapping(value="/login.do")
 	public Model toLogin(Model model,HttpServletResponse response){
 		return model;
 	}
-	@RequestMapping(value="/login/checkLogin.do")
+	@RequestMapping(value="/checkLogin.do")
 	public ModelAndView checkLogin(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.out.println(username);
 		System.out.println(password);
-		RedirectView rv = new RedirectView("http://localhost:8080/blog/admin/index.do");
-		if(!username.equals("admin") && !password.equals("123456")){
-		RedirectView rv2 = new RedirectView("http://localhost:8080/blog/login/login.do");
-			System.out.println("error");
-			return new ModelAndView(rv2);
-		}
+		if(username.equals("admin") && password.equals("123456")){
+			boolean data = true;
+			RedirectView rv = new RedirectView("http://localhost:8080/blog/admin/index.do",data);
 			return new ModelAndView(rv);
+		}
+		boolean data = false;
+		RedirectView rv2 = new RedirectView("login.do",data);
+		System.out.println("error");
+		return new ModelAndView(rv2);
 	}
 }

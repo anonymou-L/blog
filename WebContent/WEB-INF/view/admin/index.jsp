@@ -19,7 +19,7 @@
 	<div class="navigation">
 		<ul>
 		 	<li>欢迎您！</li>
-			<li><a href="">张山</a></li>
+			<li><a href="">admin</a></li>
 			<li><a href="">修改密码</a></li>
 			<li><a href="">设置</a></li>
 			<li><a href="">退出</a></li>
@@ -32,7 +32,7 @@
       <li>
           <h4 class="M9"><span></span>文章管理</h4>
           <div class="list-item none">
-            <a href=''>所有文章</a>
+            <a href='http://localhost:8080/blog/login/login.do'>所有文章</a>
             <a href=''>写文章</a>
             <a href=''>分类目录</a>
             <a href=''>标签</a>
@@ -59,12 +59,12 @@
 		</div>
 		<div class="m-right">
 			<div class="right-nav">
-					<ul>
+					<ul>                        
 							<li><img src="${ctx}/resources/images/home.png"></li>
 								<li style="margin-left:25px;">您当前的位置：</li>
-								<li><a href="#">系统公告</a></li>
+								<li><a href="#">文章管理</a></li>
 								<li>></li>
-								<li><a href="#">最新公告</a></li>
+								<li><a href="#">所有文章</a></li>
 						</ul>
 			</div>
 			<div class="main">

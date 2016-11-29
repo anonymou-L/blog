@@ -30,12 +30,11 @@ $(function(){
 		  	data:{"username":username,"password":password},
 		  	success:function(data){
 		  		if(data){
-		  			window.location.href = "/blog/admin/index.do";
+		  			window.location.href = "http://localhost:8080/blog/admin/index.do";
 		  		}else{
-		  			alert("登陆失败");
+		  			window.location.href="http://localhost:8080/blog/login/404.jsp";
 		  		}
 		  	}
-		  	
 		  	});
 	};
 })
